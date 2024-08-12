@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+
+@{
+    ViewData["Title"] = "catalogue";
+}
+
+<h1>catalogue</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        @item.Title
+                    </div>
+                    <div class="card-body">
+                        <img src="~/images/@item.BookImg" height="150" /> <br />
+                        Price For Sale : @item.PriceForSale
+                        <br />
+                        Price For Borrow : @item.PriceForBorrow Per Day
+                    </div>
+                    <div class="card-footer">
+                        <a asp-controller="SelledBooks" asp-action="Create" asp-route-id="@item.Id">Buy</a>
+                        <br />
+                        <a asp-controller="BorrowedBooks" asp-action="Create" asp-route-id="@item.Id">Borrow</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

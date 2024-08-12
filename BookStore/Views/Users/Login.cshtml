@@ -1,0 +1,78 @@
+﻿@model BookStore.Models.User;
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+ <div class="col-md-4">
+ <form asp-action="Login" class="login_form">
+    <div class="form-group">
+        <label  class="control-label"> Email</label>
+        <input name="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="password" class="control-label"> Password</label>
+        <input name="Password" type="password" class="form-control" /> <br />
+    </div>
+    <input type="submit" value="Login" class="btn btn-primary" />
+
+    <p style="color:red"> @ViewData["message"]</p>
+</form>
+ <a asp-action="Create" >Create Account</a>
+ 
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ @* 
+ <div class="col-md-4">
+        <section>
+            <form id="account" method="post" novalidate="novalidate">
+                <h2>Use a local account to log in.</h2>
+                <hr>
+
+                <div class="form-floating mb-3">
+                    <input class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="">
+                    <label class="form-label" for="Input_Email">Email</label>
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" type="password" data-val="true" data-val-required="The Password field is required." id="Input_Password" name="Input.Password">
+                    <label class="form-label" for="Input_Password">Password</label>
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
+                </div>
+                <div class="checkbox mb-3">
+                    <label class="form-label" for="Input_RememberMe">
+                        <input class="form-check-input" type="checkbox" data-val="true" data-val-required="The Remember me? field is required." id="Input_RememberMe" name="Input.RememberMe" value="true">
+                        Remember me?
+                    </label>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+                <div>
+                    <p>
+                        <a id="forgot-password" href="/Identity/Account/ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a href="/Identity/Account/Register?returnUrl=%2F">Register as a new user</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" href="/Identity/Account/ResendEmailConfirmation">Resend email confirmation</a>
+                    </p>
+                </div>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8EjEQFk8xNtJsmst4m304SB30ESl8jhevzo-qlz23syAMKuq2kLZJt2U86beCpFz3s4xbBzc1tKGqLK2BxIFMBTVVsnD8qSMLHaQEeOKif0BQg0wBraeZddnqJYOzbJCwQ8qiXj5AIjTsXLl2zJ4NzE"><input name="Input.RememberMe" type="hidden" value="false"></form>
+        </section>
+    </div>
+ *@

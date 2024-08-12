@@ -1,0 +1,116 @@
+﻿@model BookStore.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Buy</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Title)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Title)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Language)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Language)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Author)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Author)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Category)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Category)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Quantity)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Quantity)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.PriceForBorrow)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.PriceForBorrow)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.PriceForSale)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.PriceForSale)
+    </dd>
+
+    <dd>
+        <img src="/images/@Model.BookImg" height="150" />
+        <br />@Model.BookImg
+    </dd>
+<h4>SelledBook</h4>
+<hr />
+<div id="sellBook" class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="BookTitle" value="@Model.Title" />
+               
+            <div class="form-group">
+                <label  class="control-label">User Name</label>
+                    <input name="UserName" class="form-control" value="@Context.Session.GetString("Email")" />
+                @* <span asp-validation-for="UserName" class="text-danger"></span> *@
+            </div>
+
+             <div class="form-group">
+                <label  class="control-label"> UserID</label>
+                    <input name="UserId" class="form-control" value="@Convert.ToInt32(Context.Session.GetString("Id"))" />
+                @* <span asp-validation-for="UserId" class="text-danger"></span> *@
+            </div>
+
+                <div class="form-group">
+                <label for="quantity" class="control-label">Quantity</label>
+                <input name="Quantity" class="form-control" />
+              
+                </div>
+
+                @*
+            <div class="form-group">
+                <label asp-for="OrderDate" class="control-label"></label>
+                <input asp-for="OrderDate" class="form-control" />
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div> *@
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Buy" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+   @*  <script>
+        document.getElementById('sellBook').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var quantityInput = document.querySelector('input[name="Quantity"]');
+            var newQuantity = parseInt(quantityInput.value) - 1;
+            quantityInput.value = newQuantity;
+            this.submit();
+        });
+    </script> *@
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
